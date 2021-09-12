@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeBlaster", "ShapeBlaster\ShapeBlaster.csproj", "{BECE7035-3221-4D5E-9156-AE9914F8C019}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "ShapeBlasterContent", "ShapeBlasterContent\ShapeBlasterContent.contentproj", "{D4793225-37FA-4534-B92A-1B151BCA1861}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BECE7035-3221-4D5E-9156-AE9914F8C019}.Debug|x86.ActiveCfg = Debug|x86
+		{BECE7035-3221-4D5E-9156-AE9914F8C019}.Debug|x86.Build.0 = Debug|x86
+		{BECE7035-3221-4D5E-9156-AE9914F8C019}.Release|x86.ActiveCfg = Release|x86
+		{BECE7035-3221-4D5E-9156-AE9914F8C019}.Release|x86.Build.0 = Release|x86
+		{D4793225-37FA-4534-B92A-1B151BCA1861}.Debug|x86.ActiveCfg = Debug|x86
+		{D4793225-37FA-4534-B92A-1B151BCA1861}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BDF282D-8F8C-4B89-8244-FCB3BD67D9EF}
+	EndGlobalSection
+EndGlobal

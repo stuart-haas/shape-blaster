@@ -1,0 +1,27 @@
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\ShapeBlaster.exe.config
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\ShapeBlaster.exe
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\ShapeBlaster.pdb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\obj\x86\Debug\ShapeBlaster.csproj.AssemblyReference.cache
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\obj\x86\Debug\ShapeBlaster.csproj.CoreCompileInputs.cache
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\obj\x86\Debug\ShapeBlaster.csproj.CopyComplete
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\obj\x86\Debug\ShapeBlaster.exe
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\obj\x86\Debug\ShapeBlaster.pdb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Black Hole.xnb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Bullet.xnb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Glow.xnb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Laser.xnb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Player.xnb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Pointer.xnb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Seeker.xnb
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Wanderer.xnb

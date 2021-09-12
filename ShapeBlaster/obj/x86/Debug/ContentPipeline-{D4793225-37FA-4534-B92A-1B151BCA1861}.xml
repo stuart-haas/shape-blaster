@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Art\Black Hole.png</Source>
+      <Name>Art\Black Hole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Black Hole.xnb</Output>
+      <Time>2021-09-12T07:24:57.7739095-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Art\Bullet.png</Source>
+      <Name>Art\Bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Bullet.xnb</Output>
+      <Time>2021-09-12T07:24:57.776902-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Art\Glow.png</Source>
+      <Name>Art\Glow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Glow.xnb</Output>
+      <Time>2021-09-12T07:24:57.7789023-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Art\Laser.png</Source>
+      <Name>Art\Laser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Laser.xnb</Output>
+      <Time>2021-09-12T07:24:57.7799089-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Art\Player.png</Source>
+      <Name>Art\Player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Player.xnb</Output>
+      <Time>2021-09-12T07:24:57.7939013-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Art\Pointer.png</Source>
+      <Name>Art\Pointer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Pointer.xnb</Output>
+      <Time>2021-09-12T07:24:57.7959024-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Art\Seeker.png</Source>
+      <Name>Art\Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Seeker.xnb</Output>
+      <Time>2021-09-12T07:24:57.7979011-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Art\Wanderer.png</Source>
+      <Name>Art\Wanderer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\Art\Wanderer.xnb</Output>
+      <Time>2021-09-12T07:24:57.7989114-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{D4793225-37FA-4534-B92A-1B151BCA1861}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlasterContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlaster\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2021-09-12T05:46:02.250334-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

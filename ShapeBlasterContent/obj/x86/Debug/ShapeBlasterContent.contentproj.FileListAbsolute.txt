@@ -1,0 +1,2 @@
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlasterContent\obj\x86\Debug\ShapeBlasterContent.contentproj.AssemblyReference.cache
+C:\Users\Stuart\source\repos\ShapeBlaster\ShapeBlasterContent\obj\x86\Debug\ShapeBlasterContent.contentproj.CoreCompileInputs.cache
