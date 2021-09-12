@@ -14,8 +14,9 @@ namespace ShapeBlaster
         public static Random rand = new Random();
 
         public int PointValue { get; private set; }
+        public bool IsActive { get { return timeUntilStart <= 0; } }
+
         private int timeUntilStart = 60;
-        public bool IsActive {  get { return timeUntilStart <= 0;  } }
         private List<IEnumerator<int>> behaviors = new List<IEnumerator<int>>();
 
         public static Enemy CreateSeeker(Vector2 position)

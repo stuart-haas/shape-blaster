@@ -12,16 +12,23 @@ namespace ShapeBlaster
     static class EntityManager
     {
         static List<Entity> entities = new List<Entity>();
-
-        static bool isUpdating;
-        static List<Entity> addedEntities = new List<Entity>();
-
         static List<Enemy> enemies = new List<Enemy>();
         static List<Bullet> bullets = new List<Bullet>();
         static List<BlackHole> blackHoles = new List<BlackHole>();
 
+        static bool isUpdating;
+        static List<Entity> addedEntities = new List<Entity>();
+
         public static int Count {  get { return entities.Count; } }
         public static int BlackHoleCount { get { return blackHoles.Count; } }
+
+        public static void Add(Entity entity)
+        {
+            if (!isUpdating)
+                AddEntity(entity);
+            else
+                addedEntities.Add(entity);
+        }
 
         private static void AddEntity(Entity entity)
         {
@@ -30,14 +37,8 @@ namespace ShapeBlaster
                 bullets.Add(entity as Bullet);
             else if (entity is Enemy)
                 enemies.Add(entity as Enemy);
-        }
-
-        public static void Add(Entity entity)
-        {
-            if (!isUpdating)
-                EntityManager.AddEntity(entity);
-            else
-                addedEntities.Add(entity);
+            else if (entity is BlackHole)
+                blackHoles.Add(entity as BlackHole);
         }
 
         public static void Update()
@@ -52,24 +53,20 @@ namespace ShapeBlaster
             isUpdating = false;
 
             foreach (var entity in addedEntities)
-                EntityManager.Add(entity);
+                AddEntity(entity);
 
             addedEntities.Clear();
 
             entities = entities.Where(x => !x.IsExpired).ToList();
-            bullets = bullets.Where(x => !x.IsExpired).ToList();
             enemies = enemies.Where(x => !x.IsExpired).ToList();
-        }
-
-        public static void Draw(SpriteBatch spriteBatch)
-        {
-            foreach (var entity in entities)
-                entity.Draw(spriteBatch);
+            bullets = bullets.Where(x => !x.IsExpired).ToList();
+            blackHoles = blackHoles.Where(x => !x.IsExpired).ToList();
         }
 
         static void HandleCollisions()
         {
-            for(int i = 0; i < enemies.Count; i ++)
+            // handle collisions between enemies
+            for (int i = 0; i < enemies.Count; i ++)
                 for(int j = i + 1; j < enemies.Count; j ++)
                 {
                     if(IsColliding(enemies[i], enemies[j]))
@@ -79,7 +76,8 @@ namespace ShapeBlaster
                     }
                 }
 
-            for(int i = 0; i < enemies.Count; i ++)
+            // handle collisions between bullets and enemies
+            for (int i = 0; i < enemies.Count; i ++)
                 for(int j = 0; j < bullets.Count; j ++)
                 {
                     if(IsColliding(enemies[i], bullets[j]))
@@ -89,16 +87,17 @@ namespace ShapeBlaster
                     }
                 }
 
-            for(int i = 0; i < enemies.Count; i ++)
+            // handle collisions between the player and enemies
+            for (int i = 0; i < enemies.Count; i ++)
             {
                 if(enemies[i].IsActive && IsColliding(PlayerShip.Instance, enemies[i]))
                 {
-                    PlayerShip.Instance.Kill();
-                    enemies.ForEach(x => x.WasShot());
+                    KillPlayer();
                     break;
                 }
             }
 
+            // handle collisions with black holes
             for (int i = 0; i < blackHoles.Count; i++)
             {
                 for (int j = 0; j < enemies.Count; j++)
@@ -139,6 +138,12 @@ namespace ShapeBlaster
         public static IEnumerable<Entity> GetNearbyEntities(Vector2 position, float radius)
         {
             return entities.Where(x => Vector2.DistanceSquared(position, x.Position) < radius * radius);
+        }
+
+        public static void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (var entity in entities)
+                entity.Draw(spriteBatch);
         }
     }
 }
