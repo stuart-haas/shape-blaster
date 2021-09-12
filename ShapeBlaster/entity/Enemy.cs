@@ -91,6 +91,7 @@ namespace ShapeBlaster
             }
         }
 
+        #region Behaviours
         IEnumerable<int> FollowPlayer(float acceleration = 1f)
         {
             while(true)
@@ -127,5 +128,6 @@ namespace ShapeBlaster
                 }
             }
         }
+        #endregion
     }
 }

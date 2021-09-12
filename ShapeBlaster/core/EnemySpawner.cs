@@ -26,6 +26,10 @@ namespace ShapeBlaster.core
                 if (EntityManager.BlackHoleCount < 2 && rand.Next((int)inverseBlackHoleChance) == 0)
                     EntityManager.Add(new BlackHole(GetSpawnPosition()));
             }
+
+            // slowly increase the spawn rate as time progresses
+            if (inverseSpawnChance > 30)
+                inverseSpawnChance -= 0.005f;
         }
 
         private static Vector2 GetSpawnPosition()
@@ -42,7 +46,7 @@ namespace ShapeBlaster.core
 
         public static void Reset()
         {
-            inverseSpawnChance = 60;
+            inverseSpawnChance = 90;
         }
     }
 }

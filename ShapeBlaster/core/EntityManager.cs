@@ -19,6 +19,8 @@ namespace ShapeBlaster
         static bool isUpdating;
         static List<Entity> addedEntities = new List<Entity>();
 
+        public static IEnumerable<BlackHole> BlackHoles { get { return blackHoles; } }
+
         public static int Count {  get { return entities.Count; } }
         public static int BlackHoleCount { get { return blackHoles.Count; } }
 
