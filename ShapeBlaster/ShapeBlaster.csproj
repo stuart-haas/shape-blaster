@@ -73,6 +73,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="core\Grid.cs" />
     <Compile Include="entity\BlackHole.cs" />
     <Compile Include="postprocess\BloomComponent.cs" />
     <Compile Include="postprocess\BloomSettings.cs" />

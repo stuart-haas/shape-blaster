@@ -24,6 +24,8 @@ namespace ShapeBlaster
         public static Vector2 ScreenSize {  get { return new Vector2(Viewport.Width, Viewport.Height); } }
         public static GameTime GameTime { get; private set; }
 
+        public static Grid Grid { get; private set; }
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         BloomComponent bloom;
@@ -53,6 +55,10 @@ namespace ShapeBlaster
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
+            const int maxGridPoints = 1600;
+            Vector2 gridSpacing = new Vector2((float)Math.Sqrt(Viewport.Width * Viewport.Height / maxGridPoints));
+            Grid = new Grid(Viewport.Bounds, gridSpacing);
 
             EntityManager.Add(PlayerShip.Instance);
 
@@ -99,6 +105,7 @@ namespace ShapeBlaster
             EntityManager.Update();
             EnemySpawner.Update();
             PlayerStatus.Update();
+            Grid.Update();
 
             base.Update(gameTime);
         }
@@ -117,6 +124,13 @@ namespace ShapeBlaster
             spriteBatch.Begin(SpriteSortMode.Texture, BlendState.Additive);
             EntityManager.Draw(spriteBatch);
             spriteBatch.End();
+
+            // Draw grid.
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
+            Grid.Draw(spriteBatch);
+            spriteBatch.End();
+
+            base.Draw(gameTime);
 
             // Draw user interface
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
@@ -138,8 +152,6 @@ namespace ShapeBlaster
             }
 
             spriteBatch.End();
-
-            base.Draw(gameTime);
         }
 
         private void DrawRightAlignedString(string text, float y)
