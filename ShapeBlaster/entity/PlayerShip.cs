@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ShapeBlaster.core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,12 @@ namespace ShapeBlaster
 {
     class PlayerShip: Entity
     {
+        static Random rand = new Random();
+
         const int cooldownFrames = 6;
         int cooldownRemaining = 0;
-        static Random rand = new Random();
+        int framesUntilRespawn = 0;
+        public bool IsDead {  get { return framesUntilRespawn > 0;  } }
 
         private static PlayerShip instance;
         public static PlayerShip Instance
@@ -33,6 +38,12 @@ namespace ShapeBlaster
 
         public override void Update()
         {
+            if(IsDead)
+            {
+                framesUntilRespawn--;
+                return;
+            }
+
             const float speed = 8;
             Velocity = speed * Input.GetMovementDirection();
             Position += Velocity;
@@ -60,6 +71,18 @@ namespace ShapeBlaster
 
             if (cooldownRemaining > 0)
                 cooldownRemaining--;
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            if (!IsDead)
+                base.Draw(spriteBatch);
+        }
+
+        public void Kill()
+        {
+            framesUntilRespawn = 60;
+            EnemySpawner.Reset();
         }
     }
 }
