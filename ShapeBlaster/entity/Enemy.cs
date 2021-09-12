@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ShapeBlaster.core;
+using ShapeBlaster.helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +13,16 @@ namespace ShapeBlaster
     {
         public static Random rand = new Random();
 
+        public int PointValue { get; private set; }
         private int timeUntilStart = 60;
-        public bool isActive {  get { return timeUntilStart <= 0;  } }
+        public bool IsActive {  get { return timeUntilStart <= 0;  } }
         private List<IEnumerator<int>> behaviors = new List<IEnumerator<int>>();
 
         public static Enemy CreateSeeker(Vector2 position)
         {
             var enemy = new Enemy(Art.Seeker, position);
             enemy.AddBehavior(enemy.FollowPlayer());
+            enemy.PointValue = 2;
             return enemy;
         }
 
@@ -26,6 +30,7 @@ namespace ShapeBlaster
         {
             var enemy = new Enemy(Art.Wanderer, position);
             enemy.AddBehavior(enemy.MoveRandomly());
+            enemy.PointValue = 1;
             return enemy;
         }
 
@@ -65,6 +70,10 @@ namespace ShapeBlaster
         public void WasShot()
         {
             IsExpired = true;
+            Sound.Explosion.Play(0.5f, rand.NextFloat(-0.2f, 0.2f), 0);
+
+            PlayerStatus.AddPoints(PointValue);
+            PlayerStatus.IncreaseMultiplier();
         }
 
         private void AddBehavior(IEnumerable<int> behavior)

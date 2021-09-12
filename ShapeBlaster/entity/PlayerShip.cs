@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ShapeBlaster.core;
+using ShapeBlaster.helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,8 @@ namespace ShapeBlaster
 
                 offset = Vector2.Transform(new Vector2(25, 8), aimQuat);
                 EntityManager.Add(new Bullet(Position + offset, vel));
+
+                Sound.Shot.Play(0.2f, rand.NextFloat(-0.2f, 0.2f), 0);
             }
 
             if (cooldownRemaining > 0)
@@ -83,6 +86,8 @@ namespace ShapeBlaster
         {
             framesUntilRespawn = 60;
             EnemySpawner.Reset();
+            PlayerStatus.RemoveLife();
+            framesUntilRespawn = PlayerStatus.IsGameOver ? 300 : 120;
         }
     }
 }

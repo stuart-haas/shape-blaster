@@ -1,3 +1,4 @@
+using BloomPostprocess;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -6,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using ShapeBlaster.core;
+using ShapeBlaster.helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,18 +22,24 @@ namespace ShapeBlaster
         public static GameRoot Instance { get; private set; }
         public static Viewport Viewport {  get { return Instance.GraphicsDevice.Viewport;  } }
         public static Vector2 ScreenSize {  get { return new Vector2(Viewport.Width, Viewport.Height); } }
+        public static GameTime GameTime { get; private set; }
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        BloomComponent bloom;
 
         public GameRoot()
         {
+            Instance = this;
             graphics = new GraphicsDeviceManager(this);
-            graphics.IsFullScreen = false;
+            Content.RootDirectory = "Content";
+
             graphics.PreferredBackBufferWidth = 1200;
             graphics.PreferredBackBufferHeight = 800;
-            Content.RootDirectory = "Content";
-            Instance = this;
+
+            bloom = new BloomComponent(this);
+            Components.Add(bloom);
+            bloom.Settings = new BloomSettings(null, 0.25f, 4, 2, 1, 1.5f, 1);
         }
 
         /// <summary>
@@ -47,6 +55,9 @@ namespace ShapeBlaster
             base.Initialize();
 
             EntityManager.Add(PlayerShip.Instance);
+
+            //MediaPlayer.IsRepeating = true;
+            //MediaPlayer.Play(Sound.Music);
         }
 
         /// <summary>
@@ -59,6 +70,7 @@ namespace ShapeBlaster
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             Art.Load(Content);
+            Sound.Load(Content);
         }
 
         /// <summary>
@@ -77,13 +89,16 @@ namespace ShapeBlaster
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            GameTime = gameTime;
+            Input.Update();
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            Input.Update();
             EntityManager.Update();
             EnemySpawner.Update();
+            PlayerStatus.Update();
 
             base.Update(gameTime);
         }
@@ -94,17 +109,43 @@ namespace ShapeBlaster
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            bloom.BeginDraw();
+
             GraphicsDevice.Clear(Color.Black);
 
+            // Draw entities. Sort by texture for better batching.
             spriteBatch.Begin(SpriteSortMode.Texture, BlendState.Additive);
-
             EntityManager.Draw(spriteBatch);
+            spriteBatch.End();
+
+            // Draw user interface
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
+
+            spriteBatch.DrawString(Art.Font, "Lives: " + PlayerStatus.Lives, new Vector2(5), Color.White);
+            DrawRightAlignedString("Score: " + PlayerStatus.Score, 5);
+            DrawRightAlignedString("Multiplier: " + PlayerStatus.Multiplier, 35);
 
             spriteBatch.Draw(Art.Pointer, Input.MousePosition, Color.White);
+
+            if (PlayerStatus.IsGameOver)
+            {
+                string text = "Game Over\n" +
+                    "Your Score: " + PlayerStatus.Score + "\n" +
+                    "High Score: " + PlayerStatus.HighScore;
+
+                Vector2 textSize = Art.Font.MeasureString(text);
+                spriteBatch.DrawString(Art.Font, text, ScreenSize / 2 - textSize / 2, Color.White);
+            }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void DrawRightAlignedString(string text, float y)
+        {
+            var textWidth = Art.Font.MeasureString(text).X;
+            spriteBatch.DrawString(Art.Font, text, new Vector2(ScreenSize.X - textWidth - 5, y), Color.White);
         }
     }
 }

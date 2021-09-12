@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ShapeBlaster.entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace ShapeBlaster.core
     static class EnemySpawner
     {
         static Random rand = new Random();
-        static float inverseSpawnChance = 60;
+        static float inverseSpawnChance = 90;
+        static float inverseBlackHoleChance = 600;
 
         public static void Update()
         {
@@ -20,6 +22,9 @@ namespace ShapeBlaster.core
 
                 if (rand.Next((int)inverseSpawnChance) == 0)
                     EntityManager.Add(Enemy.CreateWanderer(GetSpawnPosition()));
+
+                if (EntityManager.BlackHoleCount < 2 && rand.Next((int)inverseBlackHoleChance) == 0)
+                    EntityManager.Add(new BlackHole(GetSpawnPosition()));
             }
         }
 
