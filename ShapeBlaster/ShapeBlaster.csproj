@@ -74,7 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="core\Grid.cs" />
+    <Compile Include="core\ParticleManager.cs" />
+    <Compile Include="core\ParticleState.cs" />
     <Compile Include="entity\BlackHole.cs" />
+    <Compile Include="helper\ColorUtil.cs" />
+    <Compile Include="ParticleManager\Particle.cs" />
     <Compile Include="postprocess\BloomComponent.cs" />
     <Compile Include="postprocess\BloomSettings.cs" />
     <Compile Include="helper\Art.cs" />

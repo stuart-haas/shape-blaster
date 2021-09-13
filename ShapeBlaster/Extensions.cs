@@ -34,5 +34,12 @@ namespace ShapeBlaster
             Vector2 delta = end - start;
             spriteBatch.Draw(Art.Pixel, start, null, color, delta.ToAngle(), new Vector2(0, 0.5f), new Vector2(delta.Length(), thickness), SpriteEffects.None, 0f);
         }
+
+        public static Vector2 NextVector2(this Random rand, float minLength, float maxLength)
+        {
+            double theta = rand.NextDouble() * 2 * Math.PI;
+            float length = rand.NextFloat(minLength, maxLength);
+            return new Vector2(length * (float)Math.Cos(theta), length * (float)Math.Sin(theta));
+        }
     }
 }

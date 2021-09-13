@@ -24,6 +24,8 @@ namespace ShapeBlaster
         public static Vector2 ScreenSize {  get { return new Vector2(Viewport.Width, Viewport.Height); } }
         public static GameTime GameTime { get; private set; }
 
+        public static ParticleManager<ParticleState> ParticleManager { get; private set; }
+
         public static Grid Grid { get; private set; }
 
         GraphicsDeviceManager graphics;
@@ -36,8 +38,8 @@ namespace ShapeBlaster
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1200;
-            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 2048;
+            graphics.PreferredBackBufferHeight = 1200;
 
             bloom = new BloomComponent(this);
             Components.Add(bloom);
@@ -55,6 +57,8 @@ namespace ShapeBlaster
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
+            ParticleManager = new ParticleManager<ParticleState>(1024 * 20, ParticleState.UpdateParticle);
 
             const int maxGridPoints = 1600;
             Vector2 gridSpacing = new Vector2((float)Math.Sqrt(Viewport.Width * Viewport.Height / maxGridPoints));
@@ -105,6 +109,7 @@ namespace ShapeBlaster
             EntityManager.Update();
             EnemySpawner.Update();
             PlayerStatus.Update();
+            ParticleManager.Update();
             Grid.Update();
 
             base.Update(gameTime);
@@ -128,6 +133,7 @@ namespace ShapeBlaster
             // Draw grid.
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
             Grid.Draw(spriteBatch);
+            ParticleManager.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
